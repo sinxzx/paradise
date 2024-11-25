@@ -1,45 +1,5 @@
 import { Players } from "@rbxts/services";
 
-interface ProfileTemplate {
-	PlayerData: {
-		Name: string;
-		Title: string;
-
-		HairColor: {
-			R: number;
-			G: number;
-			B: number;
-		};
-		EyeColor: {
-			R: number;
-			G: number;
-			B: number;
-		};
-
-		AccessoryStore: number[] | undefined;
-		HairStore: number[] | undefined;
-
-		EyeType: string;
-		MouthType: string;
-		Scars: string[];
-	};
-	Inventory: {
-		[ItemName: string]: number;
-	};
-	Attributes: {
-		Strength: number;
-		Agility: number;
-		Dexterity: number;
-		Perception: number;
-		Durability: number;
-		Resilience: number;
-
-		InvestmentPoints: number;
-	};
-	Injuries: string[];
-	Abilities: string[];
-}
-
 const ProfileTemplate: ProfileTemplate = {
 	PlayerData: {
 		Name: "...",
@@ -54,9 +14,6 @@ const ProfileTemplate: ProfileTemplate = {
 			G: 0,
 			B: 0,
 		},
-
-		AccessoryStore: [],
-		HairStore: [],
 
 		EyeType: "Male1",
 		MouthType: "Mouth1",
@@ -78,6 +35,7 @@ const ProfileTemplate: ProfileTemplate = {
 
 import ProfileService from "@rbxts/profileservice";
 import { Profile } from "@rbxts/profileservice/globals";
+import { ProfileTemplate } from "server/Configs/Data";
 
 const Data_Version = 0;
 const ProfileStore = ProfileService.GetProfileStore(`DATA_VERSION_${Data_Version}`, ProfileTemplate);
@@ -111,6 +69,10 @@ export function PlayerAdded(player: Player) {
 			LoadedProfile(player, profile);
 		}
 	}
+}
+
+export function GetProfile(player: Player) {
+	return Profiles.get(player)?.Data;
 }
 
 Players.GetPlayers().forEach((player) => task.spawn(() => PlayerAdded(player)));

@@ -25,7 +25,10 @@
   },
   "dependencies": {
     "@rbxts/jecs": "^0.4.1-rc.0",
+    "@rbxts/object-utils": "^1.0.4",
     "@rbxts/profileservice": "^1.4.2",
-    "@rbxts/services": "^1.5.5"
+    "@rbxts/roact": "^3.0.1",
+    "@rbxts/services": "^1.5.5",
+    "@rbxts/set-timeout": "^1.1.2"
   }
 }

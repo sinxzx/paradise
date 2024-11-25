@@ -31,6 +31,12 @@
 				"Source": {
 					"$path": "out/client"
 				}
+			},
+			"StarterCharacterScripts": {
+				"$className": "StarterCharacterScripts",
+				"Source": {
+					"$path": "out/clientcharacter"
+				}
 			}
 		},
 		"Workspace": {
